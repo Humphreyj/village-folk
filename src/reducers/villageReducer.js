@@ -128,7 +128,8 @@ export const villageReducer = (state = initialState, action) => {
                         console.log('villagerFoodResource',villagerFoodResource)
                         return{...state,food: state.food += villagerFoodResource};
                     }else if(villagerFoodResult === 1) {
-                        return{...state,villagers: state.villagers -= 1};
+                        alert('A villager has died!')
+                        return{...state,villagers: state.villagers - 1};
                     }else {
                         return {...state,food: state.food}
                     }

@@ -1,35 +1,34 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { addVillager, villagerGatherFood } from '../../actions';
 
 const TownCenter = (props) => {
-    let villagerIsgathering = null;
-
-    const gather = (vari) => {
-        vari = setInterval(props.vari,1000)
-        
-        console.log(vari)
-    }
-
-    const stop = (vari) => {
-            console.log(villagerIsgathering)
-        clearInterval(vari);
-        vari = 0;
-      }
-
-    const villageMaker = () => {
-
-          if(props.villagers === 0) {
-            stop(villagerIsgathering);
-        }else{
-            gather(villagerIsgathering);
-        }
-    }
  
+
+ 
+    
+   const [interval, chooseInterval] = useState(0)
     useEffect(() => {
 
-    villageMaker();
+        
 
+
+        if(props.villagers === 0) {
+            // alert(getFood)
+            clearInterval(interval);
+            
+            
+        }else {
+            chooseInterval(setInterval(props.villagerGatherFood,1000))
+            console.log(interval) 
+        }
+           
+            
+        
+        
+       
+       
+  
     },[props.villagers])
 
 
