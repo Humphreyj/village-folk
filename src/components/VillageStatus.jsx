@@ -32,7 +32,7 @@ const VillageStatus = (props) => {
     return (
         <VillageStats>
             <div className="population">
-                <p>Villagers: {props.villagers}</p>
+                <p>Villagers: {props.villagers.length}</p>
             </div>
             <div className="resources">
                 <p>Wood: {props.wood}</p>

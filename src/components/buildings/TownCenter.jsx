@@ -13,14 +13,16 @@ const TownCenter = (props) => {
         
 
 
-        if(props.villagers === 0) {
+        if(props.villagers.length < ) {
             // alert(getFood)
+            alert(props.villagers) 
             clearInterval(interval);
             
             
         }else {
+            alert(props.villagers) 
             chooseInterval(setInterval(props.villagerGatherFood,1000))
-            console.log(interval) 
+            
         }
            
             

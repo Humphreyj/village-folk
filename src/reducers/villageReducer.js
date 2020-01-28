@@ -1,4 +1,4 @@
-import { addVillager } from '../actions'
+
 
 const initialState =  {
     
@@ -8,7 +8,7 @@ const initialState =  {
         wood: 10,
         stone: 10,
         gold: 10,
-        villagers: 0,
+        villagers: [],
         soldiers: 0,
         buildings: [
             {
@@ -102,13 +102,19 @@ export const villageReducer = (state = initialState, action) => {
                     return {...state,food: state.food}
                 }
             case 'CREATE_VILLAGER':
+                let newVillager = {
+                    id: state.villagers.length,
+                    name: 'villager'
+                }
                 if(state.food >= 10) {
-                    return {...state,villagers: state.villagers += 1,
+                    alert('new villager')
+                    return {...state,villagers: [state.villagers] ,
                             ...state,food: state.food - 10}
-                            //Prices to be balanced in the future!
+                            
                 }else {
                     alert('Not enough food!!')
-                    return {...state,villagers: state.villagers}
+                    console.log(state.villagers)
+                    return {...state,villagers: [state.villagers]}
                 }
 
                 case 'VILLAGER_GATHER_FOOD':
